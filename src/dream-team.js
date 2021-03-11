@@ -1,4 +1,15 @@
 module.exports = function createDreamTeam(dreamTeamMembers) {
 
-  dreamTeamMembers.match(/[A-Z]/g).join('');
+  for (let i = 0; i < dreamTeamMembers.length; i++) {
+
+    if (dreamTeamMembers === dreamTeamMembers[0]) {
+      return true;
+    } else if (dreamTeamMembers === ' ') {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
 };
