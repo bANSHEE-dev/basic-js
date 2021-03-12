@@ -1,15 +1,12 @@
 module.exports = function createDreamTeam(dreamTeamMembers) {
-
-  for (let i = 0; i < dreamTeamMembers.length; i++) {
-
-    if (dreamTeamMembers === dreamTeamMembers[0]) {
-      return true;
-    } else if (dreamTeamMembers === ' ') {
-      return true;
-    } else {
-      return false;
+  if (!(dreamTeamMembers instanceof Array)) return false;
+  const resUnsorted = [];
+  const length = dreamTeamMembers.length;
+  for (let i = 0; i < length; i++) {
+    if (typeof dreamTeamMembers[i] === 'string') {
+      const trimmedMember = dreamTeamMembers[i].trim();
+      resUnsorted.push(trimmedMember[0].toUpperCase());
     }
-
   }
-
+  return resUnsorted.sort().join('');
 };
