@@ -31,7 +31,7 @@ const tabulaRecta = [
 ]
 
 
-const START_POSITION_CHARCODE = 65'
+const START_POSITION_CHARCODE = 65;
 
 
 class VigenereCipheringMachine {
