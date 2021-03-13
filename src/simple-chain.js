@@ -1,23 +1,43 @@
 const chainMaker = {
+  currChain: [],
   getLength() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    return this.currChain.length;
   },
-  addLink(value) {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+  addLink(content) {
+    this.currChain.push(`(${content})`);
+    return this;
   },
   removeLink(position) {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    if (this._chekIntegerNumber(position)) {
+      if (position < 1 || position > this.getLength()) {
+        this._deleteChain();
+        throw new Error('Removing link position is out of range!');
+      }
+      const index = position - 1;
+      this.currChain.splice(index, 1);
+      return this;
+    }
+    this._deleteChain();
+    throw new Error('Position must be integer number!')
+
   },
   reverseChain() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    this.currChain.reverse();
+    return this;
   },
   finishChain() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    const chain = this._getCHain();
+    this._deleteChain()
+    return chain;
+  },
+  _deleteChain() {
+    this.currChain.length = 0;
+  },
+  _chekIntegerNumber(num) {
+    return typeof num === 'number' && (num ^ 0) === num;
+  },
+  _getChain() {
+    return this.currChain.join('~~')
   }
 };
 
